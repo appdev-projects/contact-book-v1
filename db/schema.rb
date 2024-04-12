@@ -11,4 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 0) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "contacts", id: :serial, force: :cascade do |t|
+    t.text "first_name"
+    t.text "last_name"
+    t.date "date_of_birth"
+    t.text "street_address_1"
+    t.text "street_address_2"
+    t.text "city"
+    t.text "state"
+    t.text "zip"
+    t.text "phone"
+    t.text "notes"
+    t.timestamptz "created_at", default: -> { "CURRENT_TIMESTAMP" }
+  end
+
 end
